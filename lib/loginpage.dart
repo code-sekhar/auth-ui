@@ -79,16 +79,29 @@ class _LoginPageState extends State<LoginPage> {
                       SizedBox(height: 25),
 
                       // Login Button
-                      ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            // All validation passed
-                            ScaffoldMessenger.of(context).showSnackBar(
-                              SnackBar(content: Text("Login Successful")),
-                            );
-                          }
-                        },
-                        child: Text("Login"),
+                      SizedBox(
+                        width: double.infinity,
+                          child: ElevatedButton(
+                            onPressed: () {
+                              if (_formKey.currentState!.validate()) {
+                                ScaffoldMessenger.of(context).showSnackBar(
+                                  SnackBar(content: Text("Login Successful")),
+                                );
+                              }
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.green,     // button background
+                              foregroundColor: Colors.white,    // 👈 text color
+                              padding: EdgeInsets.symmetric(vertical: 15),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                              ),
+                            ),
+                            child: Text(
+                              "Login",
+                              style: TextStyle(fontSize: 16),
+                            ),
+                          ),
                       ),
                     ],
                   ),
